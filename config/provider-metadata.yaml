@@ -1,2 +1,1279 @@
-name: hashicorp/null
-resources: {}
+name: terraform-provider-openstack/openstack
+resources:
+    openstack_blockstorage_availability_zones_v3:
+        subCategory: ""
+        description: Get a list of Block Storage availability zones from OpenStack
+        name: openstack_blockstorage_availability_zones_v3
+        title: openstack_blockstorage_availability_zones_v3
+        argumentDocs:
+            names: |-
+                - The names of the availability zones, ordered alphanumerically, that
+                match the queried state.
+            region: |-
+                - (Optional) The region in which to obtain the Block Storage client.
+                If omitted, the region argument of the provider is used.
+            state: |-
+                - (Optional) The state of the availability zones to match. Can
+                either be available or unavailable. Default is available.
+        importStatements: []
+    openstack_blockstorage_quotaset_v3:
+        subCategory: ""
+        description: Get information on a BlockStorage Quotaset v3 of a project.
+        name: openstack_blockstorage_quotaset_v3
+        title: openstack_blockstorage_quotaset_v3
+        argumentDocs:
+            backup_gigabytes: '- The size (GB) of backups that are allowed.'
+            backups: '- The number of backups that are allowed.'
+            gigabytes: '- The size (GB) of volumes and snapshots that are allowed.'
+            groups: '- The number of groups that are allowed.'
+            per_volume_gigabytes: '- The size (GB) of volumes that are allowed for each volume.'
+            project_id: '- (Required) The id of the project to retrieve the quotaset.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Blockstorage client.
+                If omitted, the region argument of the provider is used.
+            snapshots: '- The number of snapshots that are allowed.'
+            volume_type_quota: '- Map with gigabytes_{volume_type}, snapshots_{volume_type}, volumes_{volume_type} for each volume type.'
+            volumes: '-  The number of volumes that are allowed.'
+        importStatements: []
+    openstack_blockstorage_snapshot_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Snapshot.
+        name: openstack_blockstorage_snapshot_v2
+        title: openstack_blockstorage_snapshot_v2
+        argumentDocs:
+            description: '- The snapshot''s description.'
+            metadata: '- The snapshot''s metadata.'
+            most_recent: |-
+                - (Optional) Pick the most recently created snapshot if there
+                are multiple results.
+            name: '- (Optional) The name of the snapshot.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Block Storage
+                client. If omitted, the region argument of the provider is used.
+            size: '- The size of the snapshot.'
+            status: '- (Optional) The status of the snapshot.'
+            volume_id: '- (Optional) The ID of the snapshot''s volume.'
+        importStatements: []
+    openstack_blockstorage_snapshot_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Snapshot.
+        name: openstack_blockstorage_snapshot_v3
+        title: openstack_blockstorage_snapshot_v3
+        argumentDocs:
+            description: '- The snapshot''s description.'
+            metadata: '- The snapshot''s metadata.'
+            most_recent: |-
+                - (Optional) Pick the most recently created snapshot if there
+                are multiple results.
+            name: '- (Optional) The name of the snapshot.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Block Storage
+                client. If omitted, the region argument of the provider is used.
+            size: '- The size of the snapshot.'
+            status: '- (Optional) The status of the snapshot.'
+            volume_id: '- (Optional) The ID of the snapshot''s volume.'
+        importStatements: []
+    openstack_blockstorage_volume_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Volume.
+        name: openstack_blockstorage_volume_v2
+        title: openstack_blockstorage_volume_v2
+        argumentDocs:
+            bootable: '- Indicates if the volume is bootable.'
+            metadata: '- (Optional) Metadata key/value pairs associated with the volume.'
+            name: '- (Optional) The name of the volume.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Block Storage
+                client. If omitted, the region argument of the provider is used.
+            size: '- The size of the volume in GBs.'
+            source_volume_id: '- The ID of the volume from which the current volume was created.'
+            status: '- (Optional) The status of the volume.'
+            volume_type: '- The type of the volume.'
+        importStatements: []
+    openstack_blockstorage_volume_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Volume.
+        name: openstack_blockstorage_volume_v3
+        title: openstack_blockstorage_volume_v3
+        argumentDocs:
+            bootable: '- Indicates if the volume is bootable.'
+            host: '- The OpenStack host on which the volume is located.'
+            metadata: '- (Optional) Metadata key/value pairs associated with the volume.'
+            multiattach: '- Indicates if the volume can be attached to more then one server.'
+            name: '- (Optional) The name of the volume.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Block Storage
+                client. If omitted, the region argument of the provider is used.
+            size: '- The size of the volume in GBs.'
+            source_volume_id: '- The ID of the volume from which the current volume was created.'
+            status: '- (Optional) The status of the volume.'
+            volume_type: '- The type of the volume.'
+        importStatements: []
+    openstack_compute_aggregate_v2:
+        subCategory: ""
+        description: Get information on Openstack Host Aggregate
+        name: openstack_compute_aggregate_v2
+        title: openstack_compute_aggregate_v2
+        argumentDocs:
+            hosts: '- List of Hypervisors contained in the Host Aggregate'
+            metadata: '- Metadata of the Host Aggregate'
+            name: '- The name of the host aggregate'
+            zone: '- Availability zone of the Host Aggregate'
+        importStatements: []
+    openstack_compute_availability_zones_v2:
+        subCategory: ""
+        description: Get a list of availability zones from OpenStack
+        name: openstack_compute_availability_zones_v2
+        title: openstack_compute_availability_zones_v2
+        argumentDocs:
+            names: '- The names of the availability zones, ordered alphanumerically, that match the queried state'
+            region: '- (Optional) The region to fetch availability zones from, defaults to the provider''s region'
+            state: '- (Optional) The state of the availability zones to match, default ("available").'
+        importStatements: []
+    openstack_compute_flavor_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Flavor.
+        name: openstack_compute_flavor_v2
+        title: openstack_compute_flavor_v2
+        argumentDocs:
+            description: '- (Optional) The description of the flavor.'
+            disk: '- (Optional) The exact amount of disk (in gigabytes).'
+            extra_specs: '- Key/Value pairs of metadata for the flavor.'
+            flavor_id: |-
+                - (Optional) The ID of the flavor. Conflicts with the name,
+                min_ram and min_disk
+            is_public: '- (Optional) The flavor visibility.'
+            min_disk: |-
+                - (Optional) The minimum amount of disk (in gigabytes). Conflicts
+                with the flavor_id.
+            min_ram: |-
+                - (Optional) The minimum amount of RAM (in megabytes). Conflicts
+                with the flavor_id.
+            name: '- (Optional) The name of the flavor. Conflicts with the flavor_id.'
+            ram: '- (Optional) The exact amount of RAM (in megabytes).'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Compute client.
+                If omitted, the region argument of the provider is used.
+            rx_tx_factor: '- (Optional) The rx_tx_factor of the flavor.'
+            swap: '- (Optional) The amount of swap (in gigabytes).'
+            vcpus: '- (Optional) The amount of VCPUs.'
+        importStatements: []
+    openstack_compute_hypervisor_v2:
+        subCategory: ""
+        description: Get information on Openstack Hypervisor
+        name: openstack_compute_hypervisor_v2
+        title: openstack_compute_hypervisor_v2
+        argumentDocs:
+            disk: '- The amount in GigaBytes of local storage the hypervisor can provide'
+            host_ip: '- The IP address of the Hypervisor'
+            hostname: '- The hostname of the hypervisor'
+            memory: '- The number in MegaBytes of memory the hypervisor can provide'
+            state: '- The state of the hypervisor (up or down)'
+            status: '- The status of the hypervisor (enabled or disabled)'
+            type: '- The type of the hypervisor (example: QEMU)'
+            vcpus: '- The number of virtual CPUs the hypervisor can provide'
+        importStatements: []
+    openstack_compute_instance_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Instance
+        name: openstack_compute_instance_v2
+        title: openstack_compute_instance_v2
+        argumentDocs:
+            access_ip_v4: '- The first IPv4 address assigned to this server.'
+            access_ip_v6: '- The first IPv6 address assigned to this server.'
+            availability_zone: '- The availability zone of this server.'
+            created: '- The creation time of the instance.'
+            flavor_id: '- The flavor ID used to create the server.'
+            flavor_name: '- The flavor name used to create the server.'
+            id: '- (Required) The UUID of the instance'
+            image_id: '- The image ID used to create the server.'
+            image_name: '- The image name used to create the server.'
+            key_pair: '- The name of the key pair assigned to this server.'
+            metadata: '- A set of key/value pairs made available to the server.'
+            name: '- The name of the server.'
+            network: '- An array of maps, detailed below.'
+            network.fixed_ip_v4: '- The IPv4 address assigned to this network port.'
+            network.fixed_ip_v6: '- The IPv6 address assigned to this network port.'
+            network.mac: '- The MAC address assigned to this network interface.'
+            network.name: '- The name of the network'
+            network.port: '- The port UUID for this network'
+            network.uuid: '- The UUID of the network'
+            security_groups: '- An array of security group names associated with this server.'
+            tags: '- A set of string tags assigned to this server.'
+            updated: '- The time when the instance was last updated.'
+            user_data: '- The user data added when the server was created.'
+        importStatements: []
+    openstack_compute_keypair_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Keypair.
+        name: openstack_compute_keypair_v2
+        title: openstack_compute_keypair_v2
+        argumentDocs:
+            fingerprint: '- The fingerprint of the OpenSSH key.'
+            name: '- (Required) The unique name of the keypair.'
+            public_key: '- The OpenSSH-formatted public key of the keypair.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Compute client.
+                If omitted, the region argument of the provider is used.
+        importStatements: []
+    openstack_compute_limits_v2:
+        subCategory: ""
+        description: Get information on a Compute Limits of a project.
+        name: openstack_compute_limits_v2
+        title: openstack_compute_limits_v2
+        argumentDocs:
+            max_image_meta: '- The number of allowed metadata items for each image. Starting from version 2.39 this field is dropped from ‘os-limits’ response, because ‘image-metadata’ proxy API was deprecated. Available until version 2.38.'
+            max_personality: '- The number of allowed injected files for the tenant. Available until version 2.56.'
+            max_personality_size: '- The number of allowed bytes of content for each injected file. Available until version 2.56.'
+            max_security_group_rules: '- The number of allowed rules for each security group. Available until version 2.35.'
+            max_security_groups: '- The number of allowed security groups for the tenant. Available until version 2.35.'
+            max_server_group_members: '- The number of allowed members for each server group.'
+            max_server_groups: '- The number of allowed server groups for the tenant.'
+            max_server_meta: '- The number of allowed server groups for the tenant.'
+            max_total_cores: '- The number of allowed server cores for the tenant.'
+            max_total_floating_ips: '- The number of allowed floating IP addresses for each tenant. Available until version 2.35.'
+            max_total_instances: '- The number of allowed servers for the tenant.'
+            max_total_keypairs: '- The number of allowed key pairs for the user.'
+            max_total_ram_size: '- The number of allowed floating IP addresses for the tenant. Available until version 2.35.'
+            project_id: '- (Required) The id of the project to retrieve the limits.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Compute client.
+                If omitted, the region argument of the provider is used.
+            total_cores_used: '- The number of used server cores in the tenant.'
+            total_floating_ips_used: '- The number of used floating IP addresses in the tenant.'
+            total_instances_used: '- The number of used server cores in the tenant.'
+            total_ram_used: '- The amount of used server RAM in the tenant.'
+            total_security_groups_used: '- The number of used security groups in the tenant. Available until version 2.35.'
+            total_server_groups_used: '- The number of used server groups in each tenant.'
+        importStatements: []
+    openstack_compute_quotaset_v2:
+        subCategory: ""
+        description: Get information on a Compute Quotaset of a project.
+        name: openstack_compute_quotaset_v2
+        title: openstack_compute_quotaset_v2
+        argumentDocs:
+            cores: '-  The number of allowed server cores.'
+            fixed_ips: '- The number of allowed fixed IP addresses. Available until version 2.35.'
+            floating_ips: '- The number of allowed floating IP addresses. Available until version 2.35.'
+            injected_file_content_bytes: '- The number of allowed bytes of content for each injected file. Available until version 2.56.'
+            injected_file_path_bytes: '- The number of allowed bytes for each injected file path. Available until version 2.56.'
+            injected_files: '- The number of allowed injected files. Available until version 2.56.'
+            instances: '- The number of allowed servers.'
+            key_pairs: '- The number of allowed key pairs for each user.'
+            metadata_items: '- The number of allowed metadata items for each server.'
+            project_id: '- (Required) The id of the project to retrieve the quotaset.'
+            ram: '- The amount of allowed server RAM, in MiB.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Compute client.
+                If omitted, the region argument of the provider is used.
+            security_group_rules: '- The number of allowed rules for each security group. Available until version 2.35.'
+            security_groups: '- The number of allowed security groups. Available until version 2.35.'
+            server_group_members: '- The number of allowed members for each server group.'
+            server_groups: '- The number of allowed server groups.'
+        importStatements: []
+    openstack_containerinfra_cluster_v1:
+        subCategory: ""
+        description: Get information on an OpenStack Magnum cluster.
+        name: openstack_containerinfra_cluster_v1
+        title: openstack_containerinfra_cluster_v1
+        argumentDocs:
+            api_address: '- COE API address.'
+            cluster_template_id: '- The UUID of the V1 Container Infra cluster template.'
+            coe_version: '- COE software version.'
+            create_timeout: '- The timeout (in minutes) for creating the cluster.'
+            created_at: '- The time at which cluster was created.'
+            discovery_url: '- The URL used for cluster node discovery.'
+            docker_volume_size: '- The size (in GB) of the Docker volume.'
+            fixed_network: '- The fixed network that is attached to the cluster.'
+            fixed_subnet: '- The fixed subnet that is attached to the cluster.'
+            flavor: '- The flavor for the nodes of the cluster.'
+            keypair: '- The name of the Compute service SSH keypair.'
+            labels: |-
+                - The list of key value pairs representing additional properties of
+                the cluster.
+            master_addresses: '- IP addresses of the master node of the cluster.'
+            master_count: '- The number of master nodes for the cluster.'
+            master_flavor: '- The flavor for the master nodes.'
+            name: '- (Required) The name of the cluster.'
+            node_addresses: '- IP addresses of the node of the cluster.'
+            node_count: '- The number of nodes for the cluster.'
+            project_id: '- The project of the cluster.'
+            region: |-
+                - (Optional) The region in which to obtain the V1 Container Infra
+                client.
+                If omitted, the region argument of the provider is used.
+            stack_id: '- UUID of the Orchestration service stack.'
+            updated_at: '- The time at which cluster was updated.'
+            user_id: '- The user of the cluster.'
+        importStatements: []
+    openstack_containerinfra_clustertemplate_v1:
+        subCategory: ""
+        description: Get information on an OpenStack Magnum cluster template.
+        name: openstack_containerinfra_clustertemplate_v1
+        title: openstack_containerinfra_clustertemplate_v1
+        argumentDocs:
+            apiserver_port: |-
+                - The API server port for the Container Orchestration
+                Engine for this cluster template.
+            cluster_distro: '- The distro for the cluster (fedora-atomic, coreos, etc.).'
+            coe: '- The Container Orchestration Engine for this cluster template.'
+            created_at: '- The time at which cluster template was created.'
+            dns_nameserver: |-
+                - Address of the DNS nameserver that is used in nodes of the
+                cluster.
+            docker_storage_driver: |-
+                - Docker storage driver. Changing this updates the
+                Docker storage driver of the existing cluster template.
+            docker_volume_size: '- The size (in GB) of the Docker volume.'
+            external_network_id: |-
+                - The ID of the external network that will be used for
+                the cluster.
+            fixed_network: '- The fixed network that will be attached to the cluster.'
+            fixed_subnet: '- =The fixed subnet that will be attached to the cluster.'
+            flavor: '- The flavor for the nodes of the cluster.'
+            floating_ip_enabled: |-
+                - Indicates whether created cluster should create IP
+                floating IP for every node or not.
+            http_proxy: |-
+                - The address of a proxy for receiving all HTTP requests and
+                relay them.
+            https_proxy: |-
+                - The address of a proxy for receiving all HTTPS requests and
+                relay them.
+            image: '- The reference to an image that is used for nodes of the cluster.'
+            insecure_registry: '- The insecure registry URL for the cluster template.'
+            keypair_id: '- The name of the Compute service SSH keypair.'
+            labels: |-
+                - The list of key value pairs representing additional properties
+                of the cluster template.
+            master_flavor: '- The flavor for the master nodes.'
+            master_lb_enabled: |-
+                - Indicates whether created cluster should has a
+                loadbalancer for master nodes or not.
+            name: '- (Required) The name of the cluster template.'
+            network_driver: '- The name of the driver for the container network.'
+            no_proxy: |-
+                - A comma-separated list of IP addresses that shouldn't be used in
+                the cluster.
+            project_id: '- The project of the cluster template.'
+            public: '- Indicates whether cluster template should be public.'
+            region: |-
+                - (Optional) The region in which to obtain the V1 Container Infra
+                client.
+                If omitted, the region argument of the provider is used.
+            registry_enabled: |-
+                - Indicates whether Docker registry is enabled in the
+                cluster.
+            server_type: '- The server type for the cluster template.'
+            tls_disabled: '- Indicates whether the TLS should be disabled in the cluster.'
+            updated_at: '- The time at which cluster template was updated.'
+            user_id: '- The user of the cluster template.'
+            volume_driver: |-
+                - The name of the driver that is used for the volumes of the
+                cluster nodes.
+        importStatements: []
+    openstack_containerinfra_nodegroup_v1:
+        subCategory: ""
+        description: Get information on an OpenStack Magnum node group.
+        name: openstack_containerinfra_nodegroup_v1
+        title: openstack_containerinfra_nodegroup_v1
+        argumentDocs:
+            cluster_id: '- (Required) The name of the OpenStack Magnum cluster.'
+            created_at: '- The time at which the node group was created.'
+            docker_volume_size: '- The size (in GB) of the Docker volume.'
+            flavor: '- The flavor for the nodes of the node group.'
+            image: '- The reference to an image that is used for nodes of the node group.'
+            labels: |-
+                - The list of key value pairs representing additional properties of
+                the node group.
+            max_node_count: '- The maximum number of nodes for the node group.'
+            min_node_count: '- The minimum number of nodes for the node group.'
+            name: '- (Required) The name of the node group.'
+            node_count: '- The number of nodes for the node group.'
+            project_id: '- The project of the node group.'
+            region: |-
+                - (Optional) The region in which to obtain the V1 Container Infra
+                client.
+                If omitted, the region argument of the provider is used.
+            role: '- The role of the node group.'
+            updated_at: '- The time at which the node group was updated.'
+        importStatements: []
+    openstack_dns_zone_v2:
+        subCategory: ""
+        description: Get information on an OpenStack DNS Zone.
+        name: openstack_dns_zone_v2
+        title: openstack_dns_zone_v2
+        argumentDocs:
+            all_projects: |-
+                - (Optional) Try to obtain zone ID by listing all projects
+                (requires admin role by default, depends on your policy configuration)
+            attributes: '- Attributes of the DNS Service scheduler.'
+            created_at: '- The time the zone was created.'
+            description: '- (Optional) A description of the zone.'
+            email: '- (Optional) The email contact for the zone record.'
+            masters: '- An array of master DNS servers. When type is  SECONDARY.'
+            name: '- (Optional) The name of the zone.'
+            pool_id: '- The ID of the pool hosting the zone.'
+            project_id: |-
+                - (Optional) The ID of the project the DNS zone is obtained from,
+                sets X-Auth-Sudo-Tenant-ID header (requires an assigned user role in target project)
+            region: |-
+                - (Optional) The region in which to obtain the V2 DNS client.
+                A DNS client is needed to retrieve zone ids. If omitted, the
+                region argument of the provider is used.
+            serial: '- The serial number of the zone.'
+            status: '- (Optional) The zone''s status.'
+            transferred_at: '- The time the zone was transferred.'
+            ttl: '- (Optional) The time to live (TTL) of the zone.'
+            type: '- (Optional) The type of the zone. Can either be PRIMARY or SECONDARY.'
+            updated_at: '- The time the zone was last updated.'
+            version: '- The version of the zone.'
+        importStatements: []
+    openstack_fw_policy_v1:
+        subCategory: ""
+        description: Get information on an OpenStack Firewall Policy.
+        name: openstack_fw_policy_v1
+        title: openstack_fw_policy_v1
+        argumentDocs:
+            audited: '- The audit status of the firewall policy.'
+            description: '- The description of the firewall policy.'
+            name: '- (Optional) The name of the firewall policy.'
+            policy_id: '- (Optional) The ID of the firewall policy.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve firewall policy ids. If omitted, the
+                region argument of the provider is used.
+            rules: '- The array of one or more firewall rules that comprise the policy.'
+            shared: '- The sharing status of the firewall policy.'
+            tenant_id: '- (Optional) The owner of the firewall policy.'
+        importStatements: []
+    openstack_identity_auth_scope_v3:
+        subCategory: ""
+        description: Get authentication information from the current authenticated scope.
+        name: openstack_identity_auth_scope_v3
+        title: openstack_identity_auth_scope_v3
+        argumentDocs:
+            domain_id: '- The domain ID of the scope.'
+            domain_name: '- The domain name of the scope.'
+            name: |-
+                - (Required) The name of the scope. This is an arbitrary name which is
+                only used as a unique identifier so an actual token isn't used as the ID.
+            project_domain_id: '- The domain ID of the project.'
+            project_domain_name: '- The domain name of the project.'
+            project_id: '- The project ID of the scope.'
+            project_name: '- The project name of the scope.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Identity client.
+                A Identity client is needed to retrieve tokens IDs. If omitted, the
+                region argument of the provider is used.
+            roles: '- A list of roles in the current scope. See reference below.'
+            roles.role_id: '- The ID of the role.'
+            roles.role_name: '- The name of the role.'
+            service_catalog: '- A list of service catalog entries returned with the token.'
+            service_catalog.endpoints: '- A list of endpoints for the service.'
+            service_catalog.endpoints.id: '- The ID of the endpoint.'
+            service_catalog.endpoints.interface: '- The interface of the endpoint.'
+            service_catalog.endpoints.region: '- The region of the endpoint.'
+            service_catalog.endpoints.region_id: '- The region ID of the endpoint.'
+            service_catalog.endpoints.url: '- The URL of the endpoint.'
+            service_catalog.id: '- The ID of the service.'
+            service_catalog.name: '- The name of the service.'
+            service_catalog.type: '- The type of the service.'
+            user_domain_id: '- The domain ID of the user.'
+            user_domain_name: '- The domain name of the user.'
+            user_id: '- The user ID the of the scope.'
+            user_name: '- The username of the scope.'
+        importStatements: []
+    openstack_identity_endpoint_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Endpoint.
+        name: openstack_identity_endpoint_v3
+        title: openstack_identity_endpoint_v3
+        argumentDocs:
+            endpoint_region: |-
+                - (Optional) The region the endpoint is assigned to. The
+                region and endpoint_region can be different.
+            interface: |-
+                - (Optional) The endpoint interface. Valid values are public,
+                internal, and admin. Default value is public
+            name: '- (Optional) The name of the endpoint.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Keystone client.
+                If omitted, the region argument of the provider is used.
+            service_id: '- (Optional) The service id this endpoint belongs to.'
+            service_name: '- (Optional) The service name of the endpoint.'
+            service_type: '- (Optional) The service type of the endpoint.'
+            url: '- The endpoint URL.'
+        importStatements: []
+    openstack_identity_group_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Group.
+        name: openstack_identity_group_v3
+        title: openstack_identity_group_v3
+        argumentDocs:
+            description: '- A description of the group.'
+            domain_id: '- (Optional) The domain the group belongs to.'
+            name: '- The name of the group.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Keystone client.
+                If omitted, the region argument of the provider is used.
+        importStatements: []
+    openstack_identity_project_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Project.
+        name: openstack_identity_project_v3
+        title: openstack_identity_project_v3
+        argumentDocs:
+            description: '- The description of the project.'
+            domain_id: '- (Optional) The domain this project belongs to.'
+            enabled: |-
+                - (Optional) Whether the project is enabled or disabled. Valid
+                values are true and false.
+            is_domain: |-
+                - (Optional) Whether this project is a domain. Valid values
+                are true and false.
+            name: '- (Optional) The name of the project.'
+            parent_id: '- (Optional) The parent of this project.'
+            region: '- The region the project is located in.'
+            tags: '- (Optional) Tags for the project.'
+        importStatements: []
+    openstack_identity_role_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Role.
+        name: openstack_identity_role_v3
+        title: openstack_identity_role_v3
+        argumentDocs:
+            domain_id: '- (Optional) The domain the role belongs to.'
+            name: '- The name of the role.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Keystone client.
+                If omitted, the region argument of the provider is used.
+        importStatements: []
+    openstack_identity_service_v3:
+        subCategory: ""
+        description: Get information on an OpenStack Service.
+        name: openstack_identity_service_v3
+        title: openstack_identity_service_v3
+        argumentDocs:
+            description: '- The service description.'
+            enabled: '- (Optional) The service status.'
+            name: '- (Optional) The service name.'
+            region: |-
+                - (Optional) The region in which to obtain the V3 Keystone client.
+                If omitted, the region argument of the provider is used.
+            type: '- (Optional) The service type.'
+        importStatements: []
+    openstack_identity_user_v3:
+        subCategory: ""
+        description: Get information on an OpenStack User.
+        name: openstack_identity_user_v3
+        title: openstack_identity_user_v3
+        argumentDocs:
+            default_project_id: '- (Optional) The default project this user belongs to.'
+            description: '- A description of the user.'
+            domain_id: '- (Optional) The domain this user belongs to.'
+            enabled: |-
+                - (Optional) Whether the user is enabled or disabled. Valid
+                values are true and false.
+            idp_id: '- (Optional) The identity provider ID of the user.'
+            name: '- (Optional) The name of the user.'
+            password_expires_at: '- (Optional) Query for expired passwords. See the OpenStack API docs for more information on the query format.'
+            protocol_id: '- (Optional) The protocol ID of the user.'
+            region: '- The region the user is located in.'
+            unique_id: '- (Optional) The unique ID of the user.'
+        importStatements: []
+    openstack_images_image_ids_v2:
+        subCategory: ""
+        description: Provides a list of Openstack Image IDs
+        name: openstack_images_image_ids_v2
+        title: openstack_images_image_ids_v2
+        argumentDocs:
+            member_status: |-
+                - (Optional) The status of the image. Must be one of
+                "accepted", "pending", "rejected", or "all".
+            name: |-
+                - (Optional) The name of the image. Cannot be used simultaneously
+                with name_regex.
+            name_regex: |-
+                - (Optional) The regular expressian of the name of the image.
+                Cannot be used simultaneously with name. Unlike filtering by name the
+                name_regex filtering does by client on the result of OpenStack search
+                query.
+            owner: '- (Optional) The owner (UUID) of the image.'
+            properties: |-
+                - (Optional) a map of key/value pairs to match an image with.
+                All specified properties must be matched. Unlike other options filtering
+                by properties does by client on the result of OpenStack search query.
+            region: |-
+                - (Optional) The region in which to obtain the V2 Glance client.
+                A Glance client is needed to create an Image that can be used with
+                a compute instance. If omitted, the region argument of the provider
+                is used.
+            size_max: '- (Optional) The maximum size (in bytes) of the image to return.'
+            size_min: '- (Optional) The minimum size (in bytes) of the image to return.'
+            sort: |-
+                - (Optional) Sorts the response by one or more attribute and sort
+                direction combinations. You can also set multiple sort keys and directions.
+                Default direction is desc. Use the comma (,) character to separate
+                multiple values. For example expression sort = "name:asc,status"
+                sorts ascending by name and descending by status. sort cannot be used
+                simultaneously with sort_key. If both are present in a configuration
+                then only sort will be used.
+            sort_direction: |-
+                - (Optional) Order the results in either asc or desc.
+                Can be applied only with sort_key. Defaults to asc
+            sort_key: |-
+                - (Optional) Sort images based on a certain key. Defaults to
+                name. sort_key cannot be used simultaneously with sort. If both
+                are present in a configuration then only sort will be used.
+            tag: '- (Optional) Search for images with a specific tag.'
+            visibility: |-
+                - (Optional) The visibility of the image. Must be one of
+                "public", "private", "community", or "shared". Defaults to "private".
+        importStatements: []
+    openstack_images_image_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Image.
+        name: openstack_images_image_v2
+        title: openstack_images_image_v2
+        argumentDocs:
+            checksum: '- The checksum of the data associated with the image.'
+            container_format: ': The format of the image''s container.'
+            created_at: '- The date the image was created.'
+            disk_format: ': The format of the image''s disk.'
+            file: |-
+                - the trailing path after the glance endpoint that represent the
+                location of the image or the path to retrieve it.
+            hidden: '- (Optional) Whether or not the image is hidden from public list.'
+            member_status: |-
+                - (Optional) The status of the image. Must be one of
+                "accepted", "pending", "rejected", or "all".
+            metadata: |-
+                - The metadata associated with the image.
+                Image metadata allow for meaningfully define the image properties
+                and tags. See https://docs.openstack.org/glance/latest/user/metadefs-concepts.html.
+            min_disk_gb: '- The minimum amount of disk space required to use the image.'
+            min_ram_mb: '- The minimum amount of ram required to use the image.'
+            most_recent: |-
+                - (Optional) If more than one result is returned, use the most
+                recent image.
+            name: '- (Optional) The name of the image.'
+            owner: '- (Optional) The owner (UUID) of the image.'
+            properties: |-
+                - (Optional) a map of key/value pairs to match an image with.
+                All specified properties must be matched. Unlike other options filtering
+                by properties does by client on the result of OpenStack search query.
+                Filtering is applied if server responce contains at least 2 images. In
+                case there is only one image the properties ignores.
+            protected: '- Whether or not the image is protected.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Glance client.
+                A Glance client is needed to create an Image that can be used with
+                a compute instance. If omitted, the region argument of the provider
+                is used.
+            schema: |-
+                - The path to the JSON-schema that represent
+                the image or image
+            size_bytes: '- The size of the image (in bytes).'
+            size_max: '- (Optional) The maximum size (in bytes) of the image to return.'
+            size_min: '- (Optional) The minimum size (in bytes) of the image to return.'
+            sort_direction: '- (Optional) Order the results in either asc or desc.'
+            sort_key: '- (Optional) Sort images based on a certain key. Defaults to name.'
+            tag: '- (Optional) Search for images with a specific tag.'
+            tags: '- The tags list of the image.'
+            updated_at: '- The date the image was last updated.'
+            visibility: |-
+                - (Optional) The visibility of the image. Must be one of
+                "public", "private", "community", or "shared". Defaults to "private".
+        importStatements: []
+    openstack_keymanager_container_v1:
+        subCategory: ""
+        description: Get information on a V1 Barbican container resource within OpenStack.
+        name: openstack_keymanager_container_v1
+        title: openstack_keymanager_container_v1
+        argumentDocs:
+            acl: |-
+                - The list of ACLs assigned to a container. The read structure is
+                described below.
+            consumers: |-
+                - The list of the container consumers. The structure is described
+                below.
+            consumers.created_at: '- The date the container ACL was created.'
+            consumers.name: '- The name of the consumer.'
+            consumers.project_access: '- Whether the container is accessible project wide.'
+            consumers.updated_at: '- The date the container ACL was last updated.'
+            consumers.url: '- The consumer URL.'
+            consumers.users: |-
+                - The list of user IDs, which are allowed to access the container,
+                when project_access is set to false.
+            container_ref: '- The container reference / where to find the container.'
+            created_at: '- The date the container was created.'
+            creator_id: '- The creator of the container.'
+            name: '- (Optional) The Container name.'
+            region: |-
+                - (Optional) The region in which to obtain the V1 KeyManager client.
+                A KeyManager client is needed to fetch a container. If omitted, the region
+                argument of the provider is used.
+            secret_refs: |-
+                - A set of dictionaries containing references to secrets. The
+                structure is described below.
+            secret_refs.name: |-
+                - The name of the secret reference. The reference names must correspond
+                the container type, more details are available
+                here.
+            secret_refs.secret_ref: '- The secret reference / where to find the secret, URL.'
+            status: '- The status of the container.'
+            type: '- The container type.'
+            updated_at: '- The date the container was last updated.'
+        importStatements: []
+    openstack_keymanager_secret_v1:
+        subCategory: ""
+        description: Get information on a V1 Barbican secret resource within OpenStack.
+        name: openstack_keymanager_secret_v1
+        title: openstack_keymanager_secret_v1
+        argumentDocs:
+            acl: '- The list of ACLs assigned to a secret. The read structure is described below.'
+            acl_only: |-
+                - (Optional) Select the Secret with an ACL that contains the user.
+                Project scope is ignored. Defaults to false.
+            algorithm: '- (Optional) The Secret algorithm.'
+            bit_length: '- (Optional) The Secret bit length.'
+            content_types: '- The map of the content types, assigned on the secret.'
+            created_at: '- The date the secret was created.'
+            created_at_filter: |-
+                - (Optional) Date filter to select the Secret with
+                created matching the specified criteria. See Date Filters below for more
+                detail.
+            creator_id: '- The creator of the secret.'
+            expiration: '- The date the secret will expire.'
+            expiration_filter: |-
+                - (Optional) Date filter to select the Secret with
+                expiration matching the specified criteria. See Date Filters below for more
+                detail.
+            metadata: |-
+                - The map of metadata, assigned on the secret, which has been
+                explicitly and implicitly added.
+            mode: '- (Optional) The Secret mode.'
+            name: '- (Optional) The Secret name.'
+            payload: '- The secret payload.'
+            payload_content_encoding: '- The Secret encoding.'
+            payload_content_type: '- The Secret content type.'
+            project_access: '- Whether the secret is accessible project wide.'
+            region: |-
+                - (Optional) The region in which to obtain the V1 KeyManager client.
+                A KeyManager client is needed to fetch a secret. If omitted, the region
+                argument of the provider is used.
+            secret_ref: '- The secret reference / where to find the secret.'
+            secret_type: |-
+                - (Optional) The Secret type. For more information see
+                Secret types.
+            status: '- The status of the secret.'
+            updated_at: '- The date the secret was last updated.'
+            updated_at_filter: |-
+                - (Optional) Date filter to select the Secret with
+                updated matching the specified criteria. See Date Filters below for more
+                detail.
+            users: |-
+                - The list of user IDs, which are allowed to access the secret, when
+                project_access is set to false.
+        importStatements: []
+    openstack_networking_addressscope_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Address Scope.
+        name: openstack_networking_addressscope_v2
+        title: openstack_networking_addressscope_v2
+        argumentDocs:
+            ip_version: '- (Optional) IP version.'
+            name: '- (Optional) Name of the address-scope.'
+            project_id: '- (Optional) The owner of the address-scope.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve address-scopes. If omitted, the
+                region argument of the provider is used.
+            shared: |-
+                - (Optional) Indicates whether this address-scope is shared across
+                all projects.
+        importStatements: []
+    openstack_networking_floatingip_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Floating IP.
+        name: openstack_networking_floatingip_v2
+        title: openstack_networking_floatingip_v2
+        argumentDocs:
+            address: '- (Optional) The IP address of the floating IP.'
+            all_tags: '- A set of string tags applied on the floating IP.'
+            description: '- (Optional) Human-readable description of the floating IP.'
+            dns_domain: |-
+                - The floating IP DNS domain. Available, when Neutron DNS
+                extension is enabled.
+            dns_name: |-
+                - The floating IP DNS name. Available, when Neutron DNS extension
+                is enabled.
+            fixed_ip: '- (Optional) The specific IP address of the internal port which should be associated with the floating IP.'
+            pool: '- (Optional) The name of the pool from which the floating IP belongs to.'
+            port_id: '- (Optional) The ID of the port the floating IP is attached.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve floating IP ids. If omitted, the
+                region argument of the provider is used.
+            status: '- status of the floating IP (ACTIVE/DOWN).'
+            tags: '- (Optional) The list of floating IP tags to filter.'
+            tenant_id: '- (Optional) The owner of the floating IP.'
+        importStatements: []
+    openstack_networking_network_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Network.
+        name: openstack_networking_network_v2
+        title: openstack_networking_network_v2
+        argumentDocs:
+            admin_state_up: '- The administrative state of the network.'
+            all_tags: '- The set of string tags applied on the network.'
+            availability_zone_hints: '- (Optional) The availability zone candidates for the network.'
+            description: '- (Optional) Human-readable description of the network.'
+            dns_domain: |-
+                - The network DNS domain. Available, when Neutron DNS extension
+                is enabled
+            external: '- (Optional) The external routing facility of the network.'
+            matching_subnet_cidr: '- (Optional) The CIDR of a subnet within the network.'
+            mtu: |-
+                - (Optional) The network MTU to filter. Available, when Neutron net-mtu
+                extension is enabled.
+            name: '- (Optional) The name of the network.'
+            network_id: '- (Optional) The ID of the network.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve networks ids. If omitted, the
+                region argument of the provider is used.
+            shared: |-
+                - Specifies whether the network resource can be accessed by any
+                tenant or not.
+            status: '- (Optional) The status of the network.'
+            subnets: '- A list of subnet IDs belonging to the network.'
+            tags: '- (Optional) The list of network tags to filter.'
+            tenant_id: '- (Optional) The owner of the network.'
+            transparent_vlan: |-
+                - (Optional) The VLAN transparent attribute for the
+                network.
+        importStatements: []
+    openstack_networking_port_ids_v2:
+        subCategory: ""
+        description: Provides a list of Openstack Port IDs.
+        name: openstack_networking_port_ids_v2
+        title: openstack_networking_port_ids_v2
+        argumentDocs:
+            admin_state_up: '- (Optional) The administrative state of the port.'
+            description: '- (Optional) Human-readable description of the port.'
+            device_id: '- (Optional) The ID of the device the port belongs to.'
+            device_owner: '- (Optional) The device owner of the port.'
+            fixed_ip: '- (Optional) The port IP address filter.'
+            mac_address: '- (Optional) The MAC address of the port.'
+            name: '- (Optional) The name of the port.'
+            network_id: '- (Optional) The ID of the network the port belongs to.'
+            project_id: '- (Optional) The owner of the port.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve port ids. If omitted, the
+                region argument of the provider is used.
+            security_group_ids: '- (Optional) The list of port security group IDs to filter.'
+            sort_direction: |-
+                - (Optional) Order the results in either asc or desc.
+                Defaults to none.
+            sort_key: '- (Optional) Sort ports based on a certain key. Defaults to none.'
+            status: '- (Optional) The status of the port.'
+            tags: '- (Optional) The list of port tags to filter.'
+        importStatements: []
+    openstack_networking_port_v2:
+        subCategory: ""
+        description: Get information of an OpenStack Port.
+        name: openstack_networking_port_v2
+        title: openstack_networking_port_v2
+        argumentDocs:
+            admin_state_up: '- (Optional) The administrative state of the port.'
+            all_fixed_ips: |-
+                - The collection of Fixed IP addresses on the port in the
+                order returned by the Network v2 API.
+            all_security_group_ids: '- The set of security group IDs applied on the port.'
+            all_tags: '- The set of string tags applied on the port.'
+            allowed_address_pairs: |-
+                - An IP/MAC Address pair of additional IP
+                addresses that can be active on this port. The structure is described
+                below.
+            binding: '- The port binding information. The structure is described below.'
+            description: '- (Optional) Human-readable description of the port.'
+            device_id: '- (Optional) The ID of the device the port belongs to.'
+            device_owner: '- (Optional) The device owner of the port.'
+            dns_assignment: '- The list of maps representing port DNS assignments.'
+            dns_name: |-
+                - (Optional) The port DNS name to filter. Available, when Neutron
+                DNS extension is enabled.
+            extra_dhcp_option: |-
+                - An extra DHCP option configured on the port.
+                The structure is described below.
+            fixed_ip: '- (Optional) The port IP address filter.'
+            host_id: '- The ID of the host, which has the allocatee port.'
+            ip_address: '- The additional IP address.'
+            ip_version: '- IP protocol version'
+            mac_address: '- (Optional) The MAC address of the port.'
+            name: '- (Optional) The name of the port.'
+            network_id: '- (Optional) The ID of the network the port belongs to.'
+            port_id: '- (Optional) The ID of the port.'
+            profile: '- A JSON string containing the binding profile information.'
+            project_id: '- (Optional) The owner of the port.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve port ids. If omitted, the
+                region argument of the provider is used.
+            security_group_ids: '- (Optional) The list of port security group IDs to filter.'
+            status: '- (Optional) The status of the port.'
+            tags: '- (Optional) The list of port tags to filter.'
+            value: '- Value of the DHCP option.'
+            vif_details: |-
+                - A map of JSON strings containing additional details for this
+                specific binding.
+            vif_type: '- The VNIC type of the port binding.'
+            vnic_type: '- VNIC type for the port.'
+        importStatements: []
+    openstack_networking_qos_bandwidth_limit_rule_v2:
+        subCategory: ""
+        description: Get information on an OpenStack QoS Bandwidth limit rule.
+        name: openstack_networking_qos_bandwidth_limit_rule_v2
+        title: openstack_networking_qos_bandwidth_limit_rule_v2
+        argumentDocs:
+            direction: '- (Optional) The direction of traffic.'
+            max_burst_kbps: '- (Optional) The maximum burst size in kilobits of a QoS bandwidth limit rule.'
+            max_kbps: '- (Optional) The maximum kilobits per second of a QoS bandwidth limit rule.'
+            qos_policy_id: '- (Required) The QoS policy reference.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Networking client.
+                A Networking client is needed to create a Neutron QoS bandwidth limit rule. If omitted, the
+                region argument of the provider is used.
+        importStatements: []
+    openstack_networking_qos_dscp_marking_rule_v2:
+        subCategory: ""
+        description: Get information on an OpenStack QoS DSCP marking rule.
+        name: openstack_networking_qos_dscp_marking_rule_v2
+        title: openstack_networking_qos_dscp_marking_rule_v2
+        argumentDocs:
+            dscp_mark: '- (Optional) The value of a DSCP mark.'
+            qos_policy_id: '- (Required) The QoS policy reference.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Networking client.
+                A Networking client is needed to create a Neutron QoS DSCP marking rule. If omitted, the
+                region argument of the provider is used.
+        importStatements: []
+    openstack_networking_qos_minimum_bandwidth_rule_v2:
+        subCategory: ""
+        description: Get information on an OpenStack QoS minimum bandwidth rule.
+        name: openstack_networking_qos_minimum_bandwidth_rule_v2
+        title: openstack_networking_qos_minimum_bandwidth_rule_v2
+        argumentDocs:
+            min_kbps: '- (Optional) The value of a minimum kbps bandwidth.'
+            qos_policy_id: '- (Required) The QoS policy reference.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Networking client.
+                A Networking client is needed to create a Neutron QoS minimum bandwidth rule. If omitted, the
+                region argument of the provider is used.
+        importStatements: []
+    openstack_networking_qos_policy_v2:
+        subCategory: ""
+        description: Get information on an OpenStack QoS Policy.
+        name: openstack_networking_qos_policy_v2
+        title: openstack_networking_qos_policy_v2
+        argumentDocs:
+            all_tags: '- The set of string tags applied on the QoS policy.'
+            created_at: '-  The time at which QoS policy was created.'
+            description: '- (Optional) The human-readable description for the QoS policy.'
+            is_default: '- (Optional) Whether the QoS policy is default policy or not.'
+            name: '- (Optional) The name of the QoS policy.'
+            project_id: '- (Optional) The owner of the QoS policy.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Networking client.
+                A Networking client is needed to retrieve a QoS policy ID. If omitted, the
+                region argument of the provider is used.
+            revision_number: '- The revision number of the QoS policy.'
+            shared: '- (Optional) Whether this QoS policy is shared across all projects.'
+            tags: '- (Optional) The list of QoS policy tags to filter.'
+            updated_at: '- The time at which QoS policy was created.'
+        importStatements: []
+    openstack_networking_quota_v2:
+        subCategory: ""
+        description: Get information on a NEtworking Quota of a project.
+        name: openstack_networking_quota_v2
+        title: openstack_networking_quota_v2
+        argumentDocs:
+            floatingip: '-  The number of allowed floating ips.'
+            network: '- The number of allowed networks.'
+            port: '- The number of allowed ports.'
+            project_id: '- (Required) The id of the project to retrieve the quota.'
+            rbac_policy: '- The number of allowed rbac policies.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Network client.
+                If omitted, the region argument of the provider is used.
+            router: '- The amount of allowed routers.'
+            security_group: '- The number of allowed security groups.'
+            security_group_rule: '- The number of allowed security group rules.'
+            subnet: '- The number of allowed subnets.'
+            subnetpool-: '- The number of allowed subnet pools.'
+        importStatements: []
+    openstack_networking_router_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Floating IP.
+        name: openstack_networking_router_v2
+        title: openstack_networking_router_v2
+        argumentDocs:
+            admin_state_up: '- (Optional) Administrative up/down status for the router (must be "true" or "false" if provided).'
+            availability_zone_hints: '- The availability zone that is used to make router resources highly available.'
+            description: '- (Optional) Human-readable description of the router.'
+            distributed: '- (Optional) Indicates whether or not to get a distributed router.'
+            enable_snat: '- The value that points out if the Source NAT is enabled on the router.'
+            external_fixed_ip: '- The external fixed IPs of the router.'
+            external_fixed_ip.all_tags: '- The set of string tags applied on the router.'
+            external_fixed_ip.ip_address: '- The IP address to set on the router.'
+            external_fixed_ip.subnet_id: '- Subnet in which the fixed IP belongs to.'
+            external_network_id: '- The network UUID of an external gateway for the router.'
+            name: '- (Optional) The name of the router.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve router ids. If omitted, the
+                region argument of the provider is used.
+            router_id: '- (Optional) The UUID of the router resource.'
+            status: '- (Optional) The status of the router (ACTIVE/DOWN).'
+            tags: '- (Optional) The list of router tags to filter.'
+            tenant_id: '- (Optional) The owner of the router.'
+        importStatements: []
+    openstack_networking_secgroup_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Security Group.
+        name: openstack_networking_secgroup_v2
+        title: openstack_networking_secgroup_v2
+        argumentDocs:
+            all_tags: '- The set of string tags applied on the security group.'
+            description: '- (Optional) Human-readable description the the subnet.'
+            name: '- (Optional) The name of the security group.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve security groups ids. If omitted, the
+                region argument of the provider is used.
+            secgroup_id: '- (Optional) The ID of the security group.'
+            tags: '- (Optional) The list of security group tags to filter.'
+            tenant_id: '- (Optional) The owner of the security group.'
+        importStatements: []
+    openstack_networking_subnet_ids_v2:
+        subCategory: ""
+        description: Provides a list of Openstack Subnet IDs.
+        name: openstack_networking_subnet_ids_v2
+        title: openstack_networking_subnet_ids_v2
+        argumentDocs:
+            cidr: '- (Optional) The CIDR of the subnet.'
+            description: '- (Optional) Human-readable description of the subnet.'
+            dhcp_enabled: '- (Optional) If the subnet has DHCP enabled.'
+            gateway_ip: '- (Optional) The IP of the subnet''s gateway.'
+            ip_version: '- (Optional) The IP version of the subnet (either 4 or 6).'
+            ipv6_address_mode: |-
+                - (Optional) The IPv6 address mode. Valid values are
+                dhcpv6-stateful, dhcpv6-stateless, or slaac.
+            ipv6_ra_mode: |-
+                - (Optional) The IPv6 Router Advertisement mode. Valid values
+                are dhcpv6-stateful, dhcpv6-stateless, or slaac.
+            name: '- (Optional) The name of the subnet.'
+            network_id: '- (Optional) The ID of the network the subnet belongs to.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve subnet ids. If omitted, the
+                region argument of the provider is used.
+            sort_direction: |-
+                - (Optional) Order the results in either asc or desc.
+                Defaults to none.
+            sort_key: '- (Optional) Sort subnets based on a certain key. Defaults to none.'
+            subnetpool_id: '- (Optional) The ID of the subnetpool associated with the subnet.'
+            tags: '- (Optional) The list of subnet tags to filter.'
+            tenant_id: '- (Optional) The owner of the subnet.'
+        importStatements: []
+    openstack_networking_subnet_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Subnet.
+        name: openstack_networking_subnet_v2
+        title: openstack_networking_subnet_v2
+        argumentDocs:
+            all_tags: '- A set of string tags applied on the subnet.'
+            allocation_pools: '- Allocation pools of the subnet.'
+            cidr: '- (Optional) The CIDR of the subnet.'
+            description: '- (Optional) Human-readable description of the subnet.'
+            dhcp_enabled: '- (Optional) If the subnet has DHCP enabled.'
+            dns_nameservers: '- DNS Nameservers of the subnet.'
+            enable_dhcp: '- Whether the subnet has DHCP enabled or not.'
+            gateway_ip: '- (Optional) The IP of the subnet''s gateway.'
+            host_routes: '- Host Routes of the subnet.'
+            ip_version: '- (Optional) The IP version of the subnet (either 4 or 6).'
+            ipv6_address_mode: |-
+                - (Optional) The IPv6 address mode. Valid values are
+                dhcpv6-stateful, dhcpv6-stateless, or slaac.
+            ipv6_ra_mode: |-
+                - (Optional) The IPv6 Router Advertisement mode. Valid values
+                are dhcpv6-stateful, dhcpv6-stateless, or slaac.
+            name: '- (Optional) The name of the subnet.'
+            network_id: '- (Optional) The ID of the network the subnet belongs to.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve subnet ids. If omitted, the
+                region argument of the provider is used.
+            service_types: '- Service types of the subnet.'
+            subnet_id: '- (Optional) The ID of the subnet.'
+            subnetpool_id: '- (Optional) The ID of the subnetpool associated with the subnet.'
+            tags: '- (Optional) The list of subnet tags to filter.'
+            tenant_id: '- (Optional) The owner of the subnet.'
+        importStatements: []
+    openstack_networking_subnetpool_v2:
+        subCategory: ""
+        description: Get information on an OpenStack Subnetpool.
+        name: openstack_networking_subnetpool_v2
+        title: openstack_networking_subnetpool_v2
+        argumentDocs:
+            address_scope_id: |-
+                - (Optional) The Neutron address scope that subnetpools
+                is assigned to.
+            all_tags: '- The set of string tags applied on the subnetpool.'
+            created_at: '-  The time at which subnetpool was created.'
+            default_prefixlen: |-
+                - (Optional) The size of the subnetpool default prefix
+                length.
+            default_quota: |-
+                - (Optional) The per-project quota on the prefix space that
+                can be allocated from the subnetpool for project subnets.
+            description: '- (Optional) The human-readable description for the subnetpool.'
+            ip_version: '- The IP protocol version.'
+            is_default: '- (Optional) Whether the subnetpool is default subnetpool or not.'
+            max_prefixlen: '- (Optional) The size of the subnetpool max prefix length.'
+            min_prefixlen: '- (Optional) The size of the subnetpool min prefix length.'
+            name: '- (Optional) The name of the subnetpool.'
+            prefixes: |-
+                - (Optional) A list of subnet prefixes that are assigned to the
+                subnetpool.
+            project_id: '- (Optional) The owner of the subnetpool.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Networking client.
+                A Networking client is needed to retrieve a subnetpool id. If omitted, the
+                region argument of the provider is used.
+            revision_number: '- The revision number of the subnetpool.'
+            shared: '- (Optional) Whether this subnetpool is shared across all projects.'
+            tags: '- (Optional) The list of subnetpool tags to filter.'
+            updated_at: '- The time at which subnetpool was created.'
+        importStatements: []
+    openstack_networking_trunk_v2:
+        subCategory: ""
+        description: Get information of an OpenStack Trunk.
+        name: openstack_networking_trunk_v2
+        title: openstack_networking_trunk_v2
+        argumentDocs:
+            admin_state_up: '- (Optional) The administrative state of the trunk.'
+            all_tags: '- The set of string tags applied on the trunk.'
+            description: '- (Optional) Human-readable description of the trunk.'
+            name: '- (Optional) The name of the trunk.'
+            port_id: '- (Optional) The ID of the trunk parent port.'
+            project_id: '- (Optional) The owner of the trunk.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Neutron client.
+                A Neutron client is needed to retrieve trunk ids. If omitted, the
+                region argument of the provider is used.
+            segmentation_id: '- The numeric id of the subport segment.'
+            segmentation_type: '- The segmenation tecnology used, e.g., "vlan".'
+            status: '- (Optional) The status of the trunk.'
+            sub_port: |-
+                - The set of the trunk subports. The structure of each subport is
+                described below.
+            tags: '- (Optional) The list of trunk tags to filter.'
+            trunk_id: '- (Optional) The ID of the trunk.'
+        importStatements: []
+    openstack_sharedfilesystem_availability_zones_v2:
+        subCategory: ""
+        description: Get a list of Shared File System availability zones from OpenStack
+        name: openstack_sharedfilesystem_availability_zones_v2
+        title: openstack_sharedfilesystem_availability_zones_v2
+        argumentDocs:
+            names: '- The names of the availability zones, ordered alphanumerically.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Shared File System
+                client. If omitted, the region argument of the provider is used.
+        importStatements: []
+    openstack_sharedfilesystem_share_v2:
+        subCategory: ""
+        description: Get information on an Shared File System share.
+        name: openstack_sharedfilesystem_share_v2
+        title: openstack_sharedfilesystem_share_v2
+        argumentDocs:
+            availability_zone: '- The share availability zone.'
+            description: '- (Optional) The human-readable description for the share.'
+            export_location_path: |-
+                - (Optional) The export location path of the share. Available
+                since Manila API version 2.35.
+            export_locations: |-
+                - A list of export locations. For example, when a share
+                server has more than one network interface, it can have multiple export
+                locations.
+            is_public: |-
+                - (Optional) The level of visibility for the share.
+                length.
+            metadata: |-
+                - (Optional) One or more metadata key and value pairs as a dictionary of
+                strings.
+            name: '- (Optional) The name of the share.'
+            project_id: '- (Optional) The owner of the share.'
+            region: '- The region in which to obtain the V2 Shared File System client.'
+            share_network_id: '- (Optional) The UUID of the share''s share network.'
+            share_proto: '- The share protocol.'
+            size: '- The share size, in GBs.'
+            snapshot_id: '- (Optional) The UUID of the share''s base snapshot.'
+            status: |-
+                - (Optional) A share status filter. A valid value is creating,
+                error, available, deleting, error_deleting, manage_starting,
+                manage_error, unmanage_starting, unmanage_error, unmanaged,
+                extending, extending_error, shrinking, shrinking_error, or
+                shrinking_possible_data_loss_error.
+        importStatements: []
+    openstack_sharedfilesystem_sharenetwork_v2:
+        subCategory: ""
+        description: Get information on an Shared File System share network.
+        name: openstack_sharedfilesystem_sharenetwork_v2
+        title: openstack_sharedfilesystem_sharenetwork_v2
+        argumentDocs:
+            cidr: '- (Optional) The share network CIDR.'
+            description: '- (Optional) The human-readable description of the share network.'
+            ip_version: '- (Optional) The IP version of the share network. Can either be 4 or 6.'
+            name: '- (Optional) The name of the share network.'
+            network_type: |-
+                - (Optional) The share network type. Can either be VLAN, VXLAN,
+                GRE, or flat.
+            neutron_net_id: '- (Optional) The neutron network UUID of the share network.'
+            neutron_subnet_id: '- (Optional) The neutron subnet UUID of the share network.'
+            project_id: '- (Optional) The owner of the share network.'
+            region: |-
+                - (Optional) The region in which to obtain the V2 Shared File System client.
+                A Shared File System client is needed to read a share network. If omitted, the
+                region argument of the provider is used.
+            security_service_id: |-
+                - (Optional) The security service IDs associated with
+                the share network.
+            security_service_ids: |-
+                - The list of security service IDs associated with
+                the share network.
+            segmentation_id: '- (Optional) The share network segmentation ID.'
+        importStatements: []
+    openstack_sharedfilesystem_snapshot_v2:
+        subCategory: ""
+        description: Get information on an Shared File System snapshot.
+        name: openstack_sharedfilesystem_snapshot_v2
+        title: openstack_sharedfilesystem_snapshot_v2
+        argumentDocs:
+            description: '- (Optional) The human-readable description of the snapshot.'
+            name: '- (Optional) The name of the snapshot.'
+            project_id: '- (Optional) The owner of the snapshot.'
+            region: '- (Optional) The region in which to obtain the V2 Shared File System client.'
+            share_id: '- The UUID of the source share that was used to create the snapshot.'
+            share_proto: '- The file system protocol of a share snapshot.'
+            share_size: '- The share snapshot size, in GBs.'
+            size: '- The snapshot size, in GBs.'
+            status: |-
+                - (Optional) A snapshot status filter. A valid value is available, error,
+                creating, deleting, manage_starting, manage_error, unmanage_starting,
+                unmanage_error or error_deleting.
+        importStatements: []

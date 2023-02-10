@@ -9,15 +9,17 @@ import (
 
 	"github.com/upbound/upjet/pkg/controller"
 
-	resource "github.com/upbound/upjet-provider-template/internal/controller/null/resource"
-	providerconfig "github.com/upbound/upjet-provider-template/internal/controller/providerconfig"
+	userv1 "github.com/fcosta999/provider-openstack/internal/controller/db_user_v1/userv1"
+	applicationcredentialv3 "github.com/fcosta999/provider-openstack/internal/controller/identity_application_credential_v3/applicationcredentialv3"
+	providerconfig "github.com/fcosta999/provider-openstack/internal/controller/providerconfig"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.Setup,
+		userv1.Setup,
+		applicationcredentialv3.Setup,
 		providerconfig.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {

@@ -1,0 +1,14 @@
+apiVersion: db_user_v1.openstack.upbound.io/v1alpha1
+kind: UserV1
+metadata:
+  name: user-demo
+spec:
+  forProvider:
+    instance: MY_INSTANCE_ID
+    password: SuperSecret
+    databases: 
+      - testdb
+  providerConfigRef:
+    name: default
+
+  

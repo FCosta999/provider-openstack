@@ -5,18 +5,18 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resources.null.template.upbound.io
+  name: userv1s.db_user_v1.openstack.upbound.io
 spec:
-  group: null.template.upbound.io
+  group: db_user_v1.openstack.upbound.io
   names:
     categories:
     - crossplane
     - managed
-    - template
-    kind: Resource
-    listKind: ResourceList
-    plural: resources
-    singular: resource
+    - openstack
+    kind: UserV1
+    listKind: UserV1List
+    plural: userv1s
+    singular: userv1
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -35,7 +35,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Resource is the Schema for the Resources API. <no value>
+        description: UserV1 is the Schema for the UserV1s API. <no value>
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -50,7 +50,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourceSpec defines the desired state of Resource
+            description: UserV1Spec defines the desired state of UserV1
             properties:
               deletionPolicy:
                 default: Delete
@@ -63,13 +63,40 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  triggers:
-                    additionalProperties:
+                  databases:
+                    items:
                       type: string
-                    description: A map of arbitrary strings that, when changed, will
-                      force the null resource to be replaced, re-running any associated
-                      provisioners.
+                    type: array
+                  host:
+                    type: string
+                  instanceId:
+                    type: string
+                  name:
+                    type: string
+                  passwordSecretRef:
+                    description: A SecretKeySelector is a reference to a secret key
+                      in an arbitrary namespace.
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
                     type: object
+                  region:
+                    type: string
+                required:
+                - instanceId
+                - name
+                - passwordSecretRef
                 type: object
               providerConfigRef:
                 default:
@@ -243,7 +270,7 @@ spec:
             - forProvider
             type: object
           status:
-            description: ResourceStatus defines the observed state of Resource.
+            description: UserV1Status defines the observed state of UserV1.
             properties:
               atProvider:
                 properties:

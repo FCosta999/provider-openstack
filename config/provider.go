@@ -10,12 +10,14 @@ import (
 
 	ujconfig "github.com/upbound/upjet/pkg/config"
 
-	"github.com/upbound/upjet-provider-template/config/null"
+	//"github.com/fcosta999/provider-openstack/config/null"
+	"github.com/fcosta999/provider-openstack/config/db_user_v1"
+	"github.com/fcosta999/provider-openstack/config/identity_application_credential_v3"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/upbound/upjet-provider-template"
+	resourcePrefix = "openstack"
+	modulePath     = "github.com/fcosta999/provider-openstack"
 )
 
 //go:embed schema.json
@@ -34,7 +36,8 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		db_user_v1.Configure,
+		identity_application_credential_v3.Configure,
 	} {
 		configure(pc)
 	}
